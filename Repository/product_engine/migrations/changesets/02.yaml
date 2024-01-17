@@ -1,0 +1,74 @@
+databaseChangeLog:
+  - changeSet:
+      id: create_table_agreement
+      author: dron
+      changes:
+        - createTable:
+            tableName: agreement
+            remarks: "Данные о договорах"
+            columns:
+              - column:
+                  name: agreement_id
+                  remarks: "Уникальный ключ договора"
+                  type: int
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    unique: true
+                    nullable: false
+
+              - column:
+                  name: client_id
+                  remarks: "Ключ клиента"
+                  type: int
+                  constraints:
+                    nullable: false
+
+              - column:
+                  name: product_id
+                  remarks: "Ключ продукта"
+                  type: int
+                  constraints:
+                    nullable: false
+
+              - column:
+                  name: load_term
+                  remarks: "Срок кредита, мес"
+                  type: int
+                  constraints:
+                    nullable: false
+
+              - column:
+                  name: principal_amount
+                  remarks: "Сумма кредита"
+                  type: int
+                  constraints:
+                    nullable: false
+
+              - column:
+                  name: interest
+                  remarks: "Процентная ставка"
+                  type: float
+                  constraints:
+                    nullable: false
+
+              - column:
+                  name: origination_amount
+                  remarks: "Сумма комиссий"
+                  type: int
+                  constraints:
+                    nullable: false
+
+              - column:
+                  name: activation_dttm
+                  remarks: "Время активации договора"
+                  type: timestamp
+                  constraints:
+                    nullable: false
+
+              - column:
+                  name: agreement_status
+                  remarks: "Статус договора"
+                  type: varchar(50)
+                  constraints:
+                    nullable: false

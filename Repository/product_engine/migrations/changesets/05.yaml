@@ -1,0 +1,25 @@
+databaseChangeLog:
+  - changeSet:
+      id: create_foreign_keys
+      author: dron
+      changes:
+        - addForeignKeyConstraint:
+            baseColumnNames: product_id
+            baseTableName: agreement
+            constraintName: product_id_fk
+            referencedColumnNames: product_id
+            referencedTableName: product
+
+        - addForeignKeyConstraint:
+            baseColumnNames: client_id
+            baseTableName: agreement
+            constraintName: client_id_fk
+            referencedColumnNames: client_id
+            referencedTableName: client
+
+        - addForeignKeyConstraint:
+            baseColumnNames: agreement_id
+            baseTableName: payment_schedule
+            constraintName: agreement_id_fk
+            referencedColumnNames: agreement_id
+            referencedTableName: agreement

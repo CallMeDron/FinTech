@@ -1,0 +1,9 @@
+databaseChangeLog:
+  - changeSet:
+      id: upload_products
+      author: dron
+      changes:
+        - loadData:
+            file: products.csv
+            primaryKey: product_id
+            tableName: product

@@ -1,0 +1,75 @@
+databaseChangeLog:
+  - changeSet:
+      id: create_table_client
+      author: dron
+      changes:
+        - createTable:
+            tableName: client
+            remarks: "Данные о клиентах"
+            columns:
+              - column:
+                  name: client_id
+                  remarks: "Уникальный ключ клиента"
+                  type: int
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    unique: true
+                    nullable: false
+
+              - column:
+                  name: name
+                  remarks: "Имя клиента"
+                  type: varchar(50)
+                  constraints:
+                    nullable: false
+
+              - column:
+                  name: surname
+                  remarks: "Фамилия клиента"
+                  type: varchar(50)
+                  constraints:
+                    nullable: false
+
+              - column:
+                  name: patronymic
+                  remarks: "Отчество клиента"
+                  type: varchar(50)
+
+              - column:
+                  name: birthday
+                  remarks: "Дата рождения клиента"
+                  type: date
+                  constraints:
+                    nullable: false
+
+              - column:
+                  name: phone
+                  remarks: "Номер телефона клиента"
+                  type: varchar(50)
+                  constraints:
+                    unique: true
+                    nullable: false
+
+              - column:
+                  name: email
+                  remarks: "Электронная почта клиента"
+                  type: varchar(50)
+                  constraints:
+                    unique: true
+                    nullable: false
+
+              - column:
+                  name: passport
+                  remarks: "Паспорт клиента"
+                  type: varchar(50)
+                  constraints:
+                    unique: true
+                    nullable: false
+
+              - column:
+                  name: monthly_income
+                  remarks: "Ежемесячный доход клиента"
+                  type: int
+                  constraints:
+                    nullable: false

@@ -1,0 +1,81 @@
+databaseChangeLog:
+  - changeSet:
+      id: create_table_payment_schedule
+      author: dron
+      changes:
+        - createTable:
+            tableName: payment_schedule
+            remarks: "Данные о графиках платежей"
+            columns:
+              - column:
+                  name: schedule_id
+                  remarks: "Уникальный ключ графика платежей"
+                  type: int
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    unique: true
+                    nullable: false
+
+              - column:
+                  name: agreement_id
+                  remarks: "Ключ договора"
+                  type: int
+                  constraints:
+                    nullable: false
+
+              - column:
+                  name: schedule_iteration
+                  remarks: "Итерация расписания (меняется при перерасчёте)"
+                  type: int
+                  constraints:
+                    nullable: false
+
+              - column:
+                  name: payment_date
+                  remarks: "Планируемая дата платежа"
+                  type: date
+                  constraints:
+                    nullable: false
+
+              - column:
+                  name: period_start
+                  remarks: "Начало оплачиваемого периода"
+                  type: date
+                  constraints:
+                    nullable: false
+
+              - column:
+                  name: period_end
+                  remarks: "Конец оплачиваемого периода"
+                  type: date
+                  constraints:
+                    nullable: false
+
+              - column:
+                  name: body_payment_amount
+                  remarks: "Сумма выплаты по телу долга"
+                  type: float
+                  constraints:
+                    nullable: false
+
+              - column:
+                  name: interest_payment_amount
+                  remarks: "Сумма выплаты по процентам долга"
+                  type: float
+                  constraints:
+                    nullable: false
+
+              - column:
+                  name: payment_number
+                  remarks: "Порядковый номер платежа"
+                  type: int
+                  constraints:
+                    nullable: false
+
+              - column:
+                  name: payment_status
+                  remarks: "Статус договора"
+                  type: varchar(50)
+                  constraints:
+                    nullable: false

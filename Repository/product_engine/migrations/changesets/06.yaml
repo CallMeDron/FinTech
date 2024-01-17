@@ -1,0 +1,76 @@
+databaseChangeLog:
+  - changeSet:
+      id: create_indexes
+      author: dron
+      changes:
+        - createIndex:
+            columns:
+              - column:
+                  name: name_and_version
+            tableName: product
+
+        - createIndex:
+            columns:
+              - column:
+                  name: product_code
+            tableName: product
+
+        - createIndex:
+            columns:
+              - column:
+                  name: client_id
+            tableName: agreement
+
+        - createIndex:
+            columns:
+              - column:
+                  name: product_id
+            tableName: agreement
+
+        - createIndex:
+            columns:
+              - column:
+                  name: activation_dttm
+            tableName: agreement
+
+        - createIndex:
+            columns:
+              - column:
+                  name: agreement_status
+            tableName: agreement
+
+        - createIndex:
+            columns:
+              - column:
+                  name: phone
+            tableName: client
+
+        - createIndex:
+            columns:
+              - column:
+                  name: passport
+            tableName: client
+
+        - createIndex:
+            columns:
+              - column:
+                  name: schedule_iteration
+            tableName: payment_schedule
+
+        - createIndex:
+            columns:
+              - column:
+                  name: agreement_id
+            tableName: payment_schedule
+
+        - createIndex:
+            columns:
+              - column:
+                  name: payment_date
+            tableName: payment_schedule
+
+        - createIndex:
+            columns:
+              - column:
+                  name: payment_status
+            tableName: payment_schedule

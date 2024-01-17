@@ -1,0 +1,90 @@
+databaseChangeLog:
+  - changeSet:
+      id: create_table_product
+      author: dron
+      changes:
+        - createTable:
+            tableName: product
+            remarks: "Данные о продуктах"
+            columns:
+              - column:
+                  name: product_id
+                  remarks: "Уникальный ключ продукта и версии"
+                  type: int
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    unique: true
+                    nullable: false
+
+              - column:
+                  name: name_and_version
+                  remarks: "Полное название и версия продукта"
+                  type: varchar(50)
+                  constraints:
+                    nullable: false
+                    unique: true
+
+              - column:
+                  name: product_code
+                  remarks: "Короткое внутреннее название и версия продукта"
+                  type: varchar(50)
+                  constraints:
+                    nullable: false
+                    unique: true
+
+              - column:
+                  name: min_load_term
+                  remarks: "Минимальный срок кредита, мес"
+                  type: int
+                  constraints:
+                    nullable: false
+
+              - column:
+                  name: max_load_term
+                  remarks: "Максимальный срок кредита, мес"
+                  type: int
+                  constraints:
+                    nullable: false
+
+              - column:
+                  name: min_principal_amount
+                  remarks: "Минимальная сумма кредита"
+                  type: int
+                  constraints:
+                    nullable: false
+
+              - column:
+                  name: max_principal_amount
+                  remarks: "Максимальная сумма кредита"
+                  type: int
+                  constraints:
+                    nullable: false
+
+              - column:
+                  name: min_interest
+                  remarks: "Минимальная процентная ставка"
+                  type: float
+                  constraints:
+                    nullable: false
+
+              - column:
+                  name: max_interest
+                  remarks: "Максимальная процентная ставка"
+                  type: float
+                  constraints:
+                    nullable: false
+
+              - column:
+                  name: min_origination_amount
+                  remarks: "Минимальная сумма комиссий"
+                  type: int
+                  constraints:
+                    nullable: false
+
+              - column:
+                  name: max_origination_amount
+                  remarks: "Максимальная сумма комиссий"
+                  type: int
+                  constraints:
+                    nullable: false
